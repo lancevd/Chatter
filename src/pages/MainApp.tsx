@@ -2,16 +2,14 @@ import {Routes, Route} from 'react-router-dom'
 import Header from '../components/Header'
 import SideBar from '../components/SideBar'
 import Analytics from './Analytics'
+import Content from '../components/Content'
 
 const Feed = () => {
   return (
-    <div>
+    <div className='h-screen overflow-hidden'>
         <Header />
         <SideBar />
-        <Routes>
-            {/* <Route path='/' element={<Header/>} /> */}
-            <Route path='/analytics' element={<Analytics/>} />
-        </Routes>
+        <Content />
     </div>
   )
 }

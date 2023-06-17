@@ -8,6 +8,9 @@
 }
 
 @layer components {
+  h1 {
+    @apply text-4xl md:text-6xl font-bold
+  } 
   h2 {
     @apply text-3xl md:text-5xl font-bold
   }
@@ -22,6 +25,9 @@
   }
   .btn-pry {
     @apply bg-[#543EE0] w-28 p-2 text-white rounded-lg
+  }
+  .menu-items {
+    @apply ml-4
   }
 }
 

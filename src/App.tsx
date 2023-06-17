@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
-import Feed from "./pages/Feed";
+import Feed from "./pages/MainApp";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/onboarding' element={<Signup/>}/>
-            <Route path="/feeds/*" element={<Feed/>} />
+            <Route path="/feed" element={<Feed/>} />
           </Routes>
         </div>
     </Router>
