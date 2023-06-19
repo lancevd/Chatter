@@ -17,27 +17,27 @@ const SideBar = () => {
         {
             icon: <BsBricks/>,
             name: 'Feed',
-            path: '/'
+            path: 'feed'
         },
         {
             icon: <BsBookmarks/>,
             name: 'Bookmarks',
-            path: '/bookmarks'
+            path: 'bookmarks'
         },
         {
             icon: <LuUsers/>,
             name: 'Team Blog',
-            path: '/team-blogs'
+            path: 'team-blogs'
         },
         {
             icon: <MdOutlineDrafts/>,
             name: 'Drafts',
-            path: '/drafts'
+            path: 'drafts'
         },
         {
             icon: <MdOutlineAnalytics/>,
             name: 'Analytics',
-            path: '/analytics'
+            path: 'analytics'
         }
     ]
   return (

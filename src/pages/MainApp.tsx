@@ -4,7 +4,7 @@ import SideBar from '../components/SideBar'
 import Analytics from './Analytics'
 import Content from '../components/Content'
 
-const Feed = () => {
+const MainApp = () => {
   return (
     <div className='h-screen overflow-hidden'>
         <Header />
@@ -14,4 +14,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default MainApp

@@ -8,7 +8,7 @@ const PostPreview = () => {
   return (
     <div className="border p-4 md:p-8">
         <div className='flex gap-4 items-center'>
-            <div className="w-16 h-16 bg-cyan-800 rounded-full">
+            <div className="w-8 h-8 md:w-16 md:h-16 bg-cyan-800 rounded-[50%]">
 
             </div>
             <div className="flex flex-col">
