@@ -1,7 +1,10 @@
 import {HiOutlinePencil} from 'react-icons/hi'
 import PostPreview from './PostPreview'
+import {useContext} from 'react'
+import { ChatterContext } from '../context/ChatterContext'
 
 const Feed = () => {
+  const {posts}: any = useContext(ChatterContext)
   return (
     <div className='w-[90%] mx-auto py-6'>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
