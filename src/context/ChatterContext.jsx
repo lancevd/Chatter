@@ -42,7 +42,7 @@ const ChatterProvider = ({children}) => {
                             bannerImage: doc.data().bannerImage,
                             title: doc.data().title,
                             comments: doc.data().commentCount,
-                            postedOn: doc.data().publishedOn.toDate(),
+                            publishedOn: doc.data().publishedOn.toDate(),
                             author: doc.data().author
                         }
                     }
