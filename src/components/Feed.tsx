@@ -4,7 +4,10 @@ import {useContext} from 'react'
 import { ChatterContext } from '../context/ChatterContext'
 
 const Feed = () => {
+  const {users}: any = useContext(ChatterContext)
   const {posts}: any = useContext(ChatterContext)
+
+  console.log(users, '**')
   return (
     <div className='w-[90%] mx-auto py-6'>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
@@ -21,9 +24,10 @@ const Feed = () => {
                 <h5>Featured</h5>
                 <h5>Recent</h5>
             </div>
-            <PostPreview/>
-            <PostPreview/>
-            <PostPreview/>
+            {posts.map(post =>(
+              <PostPreview article={post} key={post.id}/>
+            ))}
+            
     </div>
   )
 }

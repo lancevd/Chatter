@@ -4,7 +4,11 @@ import {MdOutlineAnalytics} from 'react-icons/md'
 import Post1 from '../assets/images/post1.png'
 import Post2 from '../assets/images/post2.png'
 
-const PostPreview = () => {
+type postProps = {
+    article: any
+}
+
+const PostPreview = (props: postProps) => {
   return (
     <div className="border p-4 md:p-8">
         <div className='flex gap-4 items-center'>
