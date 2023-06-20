@@ -4,8 +4,7 @@ import {useContext} from 'react'
 import { ChatterContext } from '../context/ChatterContext'
 
 const Feed = () => {
-  const {users}: any = useContext(ChatterContext)
-  const {posts}: any = useContext(ChatterContext)
+  const { users, posts }: any = useContext(ChatterContext);
 
   console.log(users, '**')
   return (
@@ -24,10 +23,9 @@ const Feed = () => {
                 <h5>Featured</h5>
                 <h5>Recent</h5>
             </div>
-            {posts.map(post =>(
-              <PostPreview article={post} key={post.id}/>
+            {posts.map((post: any) => (
+              <PostPreview post={post} key={post.id} />
             ))}
-            
     </div>
   )
 }
