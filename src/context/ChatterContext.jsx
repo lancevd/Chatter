@@ -8,6 +8,7 @@ const ChatterContext = createContext()
 const ChatterProvider = ({children}) => {
     const [users, setUsers] = useState([])
     const [posts, setPosts] = useState([])
+    const [single, setsingle] = useState()
     
     useEffect(()=> {
         const getUsers = async () => {
@@ -28,8 +29,9 @@ const ChatterProvider = ({children}) => {
 
     useEffect(()=> {
         const getPosts = async () => {
+
             const querySnapshot = await getDocs(collection(db, 'Articles'))
-    
+            
            setPosts(
                querySnapshot.docs.map(doc => {
                     return{

@@ -41,7 +41,7 @@ const SideBar = () => {
         }
     ]
   return (
-    <aside className={`border bg-white w-[${isOpen ? '40%' : '50px'}] md:w-[25%] lg:w-[20%] overflow-scroll fixed top-0 left-0 p-2 md:px-4 lg:py-8 lg:px-10 z-[10000] h-screen`}>
+    <aside className={`border bg-white w-[${isOpen ? '40%' : '50px'}] md:w-[25%] lg:w-[20%] overflow-y-scroll fixed top-0 left-0 p-2 md:px-4 lg:py-8 lg:px-10 z-[10000] h-screen`}>
        <div className={`${isOpen ? 'hidden' : 'block'} md:hidden mt-4`} onClick={toggleSidebar} ><FaBars/></div>
        <div className={`${!isOpen ? 'hidden' : 'block'} md:block`}>
             <div className='flex justify-between items-center'>

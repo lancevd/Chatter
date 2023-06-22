@@ -3,25 +3,44 @@ import {AiOutlineComment, AiOutlineHeart} from 'react-icons/ai'
 import {MdOutlineAnalytics} from 'react-icons/md' 
 import Post1 from '../assets/images/post1.png'
 import Post2 from '../assets/images/post2.png'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getFirestore, doc, getDoc, DocumentData } from 'firebase/firestore';
+import {db} from '../firebase'
 
 type postProps = {
     post: any
 }
 
 const PostPreview: React.FC<postProps> = ({post}) => {
-    console.log(post)
+    const [authorData, setAuthorData] = useState<DocumentData | null>(null)
+
+    useEffect(() =>{
+        const getAuthorData = async () => {
+            const authorDoc = await getDoc(doc(db, 'Users', post.data.author));
+            const authorData = authorDoc.exists() ? authorDoc.data() : null;
+            if (authorData) {
+              setAuthorData(authorData);
+            }
+          };
+
+        getAuthorData()
+    },[post])
+
+    console.log(authorData)
+    
   return (
     <div className="border p-4 md:p-8">
         <div className='flex gap-4 items-center'>
             <div className="w-8 h-8 md:w-16 md:h-16 bg-cyan-800 rounded-[50%]">
             </div>
             <div className="flex flex-col">
-                <h5>{post.data.author}</h5>
+                    <h5>{authorData ? authorData.name : ''}</h5>
                 <p><span>Product designer </span> | {}</p>
             </div>
         </div>
         <br />
-        <h4>{post.data.title}</h4>
+        <Link to={`post/${post.id}`}><h4>{post.data.title}</h4></Link>
         <p className="tex-sm flex gap-2 items-center"><span> <VscBook/> </span> 10 mins read</p>
         <br />
         <p>{post.data.brief}</p>

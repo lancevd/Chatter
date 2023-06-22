@@ -2,6 +2,7 @@ import {Route, Routes} from 'react-router-dom'
 import Feed from "./Feed"
 import Footer from "./Home/Footer"
 import Analytics from '../pages/Analytics'
+import Post from '../pages/Post'
 
 
 const Content = () => {
@@ -10,6 +11,7 @@ const Content = () => {
         <Routes>
             <Route path="feed" element={<Feed/>} />
             <Route path="analytics" element={<Analytics/>} />
+            <Route path="pos/:postid" element={<Post/>} />
         </Routes>
 
         <Footer />
