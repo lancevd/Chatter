@@ -20,7 +20,7 @@ const PostPreview: React.FC<postProps> = ({post}) => {
     useEffect(() =>{
         setAuthorInfo(post.data.author)
         const getAuthorData = async () => {
-            // const authorDoc = ((await getDoc(doc(db, 'Users', 'olamosob@gmail.com' ))).data());
+            const authorDoc = ((await getDoc(doc(db, 'Users', 'olamosob@gmail.com' ))).data());
             // console.log(post.data.author)
             // setAuthorData(authorDoc)
             // console.log(authorDoc) 
