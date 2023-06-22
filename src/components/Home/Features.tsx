@@ -25,22 +25,22 @@ export const FeatureBox = () => {
         content: string
     }[] = [
         {
-            icon: {Lytics},
+            icon: `${Lytics}`,
             title: 'Analytics',
             content: 'Analytics to track the number of views, likes and comment and also analyze the performance of your articles over a period of time'
         },
         {
-            icon: {Community},
+            icon: `${Community}`,
             title: 'Social interactions',
             content: 'Users on the platform can interact with posts they like, comment and engage in discussions'
         },
         {
-            icon: {Content},
+            icon: `${Content}`,
             title: 'Content creation',
             content: 'Write nice and appealing with our in-built markdown, a rich text editor'
         }
     ]
-    console.log(typeof(BoxDetails[0].icon))
+
   return (
     <div className='flex flex-col gap-8 lg:flex-row'>
         {BoxDetails.map((box) =>(

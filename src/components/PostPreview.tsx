@@ -5,7 +5,7 @@ import Post1 from '../assets/images/post1.png'
 import Post2 from '../assets/images/post2.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getFirestore, doc, getDoc, DocumentData } from 'firebase/firestore';
+import { getFirestore, doc, getDocs, DocumentData, collection, where } from 'firebase/firestore';
 import {db} from '../firebase'
 
 type postProps = {
@@ -14,18 +14,26 @@ type postProps = {
 
 const PostPreview: React.FC<postProps> = ({post}) => {
     const [authorData, setAuthorData] = useState<DocumentData | null>(null)
+    const [authorInfo, setAuthorInfo] = useState('')
 
+    
     useEffect(() =>{
+        setAuthorInfo(post.data.author)
         const getAuthorData = async () => {
-            const authorDoc = await getDoc(doc(db, 'Users', post.data.author));
-            const authorData = authorDoc.exists() ? authorDoc.data() : null;
-            if (authorData) {
-              setAuthorData(authorData);
-            }
+            // const authorDoc = ((await getDoc(doc(db, 'Users', 'olamosob@gmail.com' ))).data());
+            // console.log(post.data.author)
+            // setAuthorData(authorDoc)
+            // console.log(authorDoc) 
+            // const usersRef = collection(db, "Users");
+            // const q = usersRef.where( "email", "==" "example@example.com");
+            // const querySnapshot = await getDocs(q)
           };
 
+
+          
+
         getAuthorData()
-    },[post])
+    },[])
 
     console.log(authorData)
     
