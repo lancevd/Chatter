@@ -7,7 +7,7 @@ const PostDetails = () => {
         
   return (
     <div>
-      <h5>{postid} </h5>
+      <h5>{postid} Hello</h5>
       {/* <h1>{post.title}</h1>
       <p>{post.content}</p> */}
     </div>
