@@ -23,8 +23,6 @@ const PostPreview: React.FC<postProps> = ({post}) => {
 
     getAuthorData();
   }, []);
-
-    console.log(authorData)
     
   return (
     <div className="border p-4 md:p-8">
@@ -38,7 +36,7 @@ const PostPreview: React.FC<postProps> = ({post}) => {
             </div>
         </div>
         <br />
-        <Link to={`post/${post.id}`}><h4>{post.data.title}</h4></Link>
+        <Link to={`/post/${post.id}`}><h4>{post.data.title}</h4></Link>
         <p className="tex-sm flex gap-2 items-center"><span> <VscBook/> </span> {post.data.postLength} mins read</p>
         <br />
         <p>{post.data.brief}</p>

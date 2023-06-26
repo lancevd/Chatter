@@ -45,7 +45,7 @@ const SideBar = () => {
        <div className={`${isOpen ? 'hidden' : 'block'} md:hidden mt-4`} onClick={toggleSidebar} ><FaBars/></div>
        <div className={`${!isOpen ? 'hidden' : 'block'} md:block`}>
             <div className='flex justify-between items-center'>
-                    <h3 className='text-[#543EE0] font-medium'>CHATTER</h3> 
+                    <Link to='/'><h3 className='text-[#543EE0] font-medium'>CHATTER</h3> </Link>
                     <h4 onClick={toggleSidebar} className='block text-red-600 md:hidden'><FaWindowClose/></h4>
             </div>
             <br />

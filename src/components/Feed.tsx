@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Feed = () => {
   const { users, posts }: any = useContext(ChatterContext);
 
-  console.log(posts, '**')
+  // console.log(posts, '**')
   return (
     <div className='w-[90%] mx-auto py-6'>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
