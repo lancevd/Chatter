@@ -8,7 +8,6 @@ const ChatterContext = createContext()
 const ChatterProvider = ({children}) => {
     const [users, setUsers] = useState([])
     const [posts, setPosts] = useState([])
-    const [single, setsingle] = useState()
     
     useEffect(()=> {
         const getUsers = async () => {
@@ -41,7 +40,7 @@ const ChatterProvider = ({children}) => {
                             brief: doc.data().brief,
                             category: doc.data().category,
                             postLength: doc.data().postLength,
-                            bannerImage: doc.data().bannerImage,
+                            bannerImage: doc.data().image,
                             title: doc.data().title,
                             comments: doc.data().commentCount,
                             likes: doc.data().likeCount,
