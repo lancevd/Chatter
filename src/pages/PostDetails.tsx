@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getFirestore, doc, getDoc, getDocs } from 'firebase/firestore';
 
 type articleProps = {
   postId: any
   author: any
+  post: any
 }
 
 const PostDetails: React.FC<articleProps> = ({postId, author}) => {
@@ -12,7 +12,7 @@ const PostDetails: React.FC<articleProps> = ({postId, author}) => {
         
   return (
     <div>
-      <h5>{postId} Hello</h5>
+      <h5>Hello {author.name} </h5>
       {/* <h1>{post.title}</h1>
       <p>{post.content}</p> */}
     </div>
