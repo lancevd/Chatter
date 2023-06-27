@@ -6,6 +6,7 @@ import Analytics from '../pages/Analytics'
 import PostDetails from '../pages/PostDetails'
 import { useContext } from 'react'
 import { ChatterContext } from '../context/ChatterContext'
+import CreatePost from '../pages/CreatePost'
 
 
 type articleProps = {
@@ -36,6 +37,7 @@ const Content = () => {
             <Route path="/feed" element={<Feed/>} />
             <Route path="analytics" element={<Analytics/>} />
             <Route path={`/post/${postPath}`} element={<PostDetails postId={postPath} post={post} author={author}/>} />
+            <Route path={'create-post'} element={<CreatePost/>}/>
         </Routes>
 
         <Footer />
