@@ -32,7 +32,7 @@ const PostPreview: React.FC<postProps> = ({post}) => {
             </div>
             <div className="flex flex-col">
                     <h5>{authorData ? authorData.name : ''}</h5>
-                <p><span>{authorData ? authorData.occupation : ''} </span> | </p>
+                <p><span>{authorData ? authorData.occupation : ''} </span> |{post.data ? new Date(post.data.publishedOn).toLocaleString('en-Us') : ''} </p>
             </div>
         </div>
         <br />
