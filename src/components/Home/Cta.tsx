@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Cta1 from '../../assets/images/cta1.png'
 import Cta2 from '../../assets/images/cta2.png'
 import Cta3 from '../../assets/images/cta3.png'
@@ -24,7 +25,7 @@ const Cta = () => {
                     <br />
                     <p className='w-[90%]'>Share people your great ideas, and also read write-ups based on your interests. connect with people of same interests and goals  </p>
                     <br />
-                    <button className="btn-pry">Get Started</button>
+                    <Link to='/register'><button className="btn-pry">Get Started</button></Link>
                 </div>
             </div>
         </div>

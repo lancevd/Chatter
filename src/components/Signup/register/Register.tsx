@@ -1,6 +1,9 @@
-import React from 'react'
+import {useContext} from 'react'
+import { ChatterContext } from '../../../context/ChatterContext'
 
 const Register = () => {
+    // if()
+    const {handleGoogleAuth, handleEmailAuth} = useContext(ChatterContext)
   return (
     <div className='reg-form'>
         <h4>Register as a Reader/Writer</h4>
@@ -10,19 +13,19 @@ const Register = () => {
                 <div className='w-1/2'>
                     <label htmlFor="fname">First Name</label>
                     <div className="h-1"></div>
-                    <input type="text" id='fname' className='border-2 rounded-lg p-2 w-full' />
+                    <input type="text" id='fname' className='border-2 rounded-lg p-2 w-full' required />
                 </div>
                 <div className='w-1/2'>
                     <label htmlFor="lname">Last Name</label>
                     <div className="h-1"></div>
-                    <input type="text" id='lname' className='border-2 rounded-lg p-2 w-full' />
+                    <input type="text" id='lname' className='border-2 rounded-lg p-2 w-full' required />
                 </div>
             </div>
             <div className="h-3"></div>
             <div className='w-full'>
                 <label htmlFor="role">You are joining as?</label>
                 <div className="h-1"></div>
-                <select name="" id="role" className='border-2 rounded-lg p-2 w-full'>
+                <select name="" id="role" className='border-2 rounded-lg p-2 w-full' required>
                     <option value="writer">Writer</option>
                     <option value="reader">Reader</option>
                 </select>
@@ -31,26 +34,27 @@ const Register = () => {
             <div className='w-full'>
                 <label htmlFor="email">Email Address</label>
                 <div className="h-1"></div>
-                <input type="email" id='email' className='border-2 rounded-lg p-2 w-full' />
+                <input type="email" id='email' className='border-2 rounded-lg p-2 w-full' required />
             </div>
             <div className="h-3"></div>
             <div className='w-full'>
                 <label htmlFor="pass">Password</label>
                 <div className="h-1"></div>
-                <input type="password" id='pass' className='border-2 rounded-lg p-2 w-full' />
+                <input type="password" id='pass' className='border-2 rounded-lg p-2 w-full' required />
             </div>
             <div className="h-3"></div>
-            <div className='w-full'>
+            {/* <div className='w-full'>
                 <label htmlFor="cpass">Confirm Password</label>
                 <div className="h-1"></div>
-                <input type="password" id='cpass' className='border-2 rounded-lg p-2 w-full' />
-            </div>
+                <input type="password" id='cpass' className='border-2 rounded-lg p-2 w-full' required />
+            </div> */}
             <div className="h-3"></div>
-            <button className="btn-pry w-full">Create Account</button>
+            {/* <div className='bg-red-700 my-2 px-3 text-white'>Error</div> */}
+            <button onClick={handleEmailAuth} className="btn-pry w-full">Create Account</button>
             <div className="h-3"></div>
-            <button className='w-full p-2 rounded-lg border'>Sign up with Google</button>
+            <button onClick={handleGoogleAuth} className='w-full p-2 rounded-lg border'>Sign up with Google</button>
             <div className="h-3"></div>
-            <button className='w-full p-2 rounded-lg border'>Sign up with Linkedin</button>
+            {/* <button className='w-full p-2 rounded-lg border'>Sign up with Linkedin</button> */}
         </form>
     </div>
   )

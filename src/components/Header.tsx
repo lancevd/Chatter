@@ -1,5 +1,6 @@
 import {FaSearch } from 'react-icons/fa'
 import {MdOutlineNotificationsNone} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
            </div>
            <div className='flex items-center gap-4 text-2xl'>
               <MdOutlineNotificationsNone/>
+              <Link to={'/register'}><div className="btn-pry w-fit cursor-pointer">Sign up</div></Link>
               <div className="w-12 h-12 rounded-full bg-blue-800"></div>
            </div>
         </div>

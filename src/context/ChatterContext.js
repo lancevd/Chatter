@@ -1,7 +1,8 @@
 import  { useState, useEffect, createContext } from "react";
 import {collection, getDocs, setDoc, doc} from 'firebase/firestore'
-import {db} from '../firebase'
+import {db, auth, googleProvider, mailProvider} from '../firebase'
 import { MdAod } from "react-icons/md";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const ChatterContext = createContext()
 
@@ -40,7 +41,7 @@ const ChatterProvider = ({children}) => {
                             brief: doc.data().brief,
                             category: doc.data().category,
                             postLength: doc.data().postLength,
-                            bannerImage: doc.data().image,
+                            bannerImage: doc.data().image ,
                             title: doc.data().title,
                             comments: doc.data().commentCount,
                             likes: doc.data().likeCount,
@@ -56,9 +57,19 @@ const ChatterProvider = ({children}) => {
         getPosts()
     },[])
 
+    const handleGoogleAuth = async (e) => {
+        e.preventDefault()
+        await signInWithPopup(auth, googleProvider)
+    }
+
+    const handleEmailAuth = async (e) => {
+        e.preventDefault()
+        await signInWithEmailAndPassword
+    }
+
     return (
         <ChatterContext.Provider 
-        value={{posts,users}}>
+        value={{posts,users, handleGoogleAuth, handleEmailAuth}}>
             {children}
         </ChatterContext.Provider>
     )

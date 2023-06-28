@@ -1,5 +1,6 @@
 import React from 'react'
 import TestimonialIMG from '../../assets/images/testimonial.png'
+import { Link } from 'react-router-dom'
 
 const Testimonial = () => {
   return (
@@ -12,7 +13,7 @@ const Testimonial = () => {
                 <p>"Chatter has become an integral part of my online experience. As a user of this incredible blogging platform, I have discovered a vibrant com"</p>
                 <br />
                 <p><span className='text-lg font-medium'>Adebobola Muhydeen,</span> Software developer at Apple</p>
-                <button className="btn-pry mt-3">Join Chatter</button>
+                <Link to='/register'><button className="btn-pry mt-3">Join Chatter</button></Link>
             </div>
         </div>
     </div>

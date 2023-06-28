@@ -12,7 +12,7 @@ const Header = () => {
           <a className='font-bold' href='#'>Blog</a>
         </menu>
         <div className="flex gap-6">
-          <Link to='/onboarding'><button className='w-24 p-2 border-2 rounded-lg border-[#543EE0]'>Login</button></Link>
+          <Link to='/register'><button className='w-24 p-2 border-2 rounded-lg border-[#543EE0]'>Login</button></Link>
           <button className='w-24 p-2 border-2 rounded-lg border-[#543EE0] bg-[#543EE0] text-white'>Sign Up</button>
         </div>
       </nav>
