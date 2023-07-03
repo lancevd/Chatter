@@ -4,6 +4,8 @@ import {auth} from '../../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const Register = () => {
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const {handleGoogleAuth} = useContext(ChatterContext)
@@ -15,13 +17,13 @@ const Register = () => {
             // Signed in 
             const user = userCredential.user;
             // ...
-            console.log(user + 'Welcome')
+            setSuccess('Registration Successful')
         })
         .catch((error) => {
             const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-        console.log(errorMessage)
+        setError(errorMessage)
   });
 
     }
@@ -31,6 +33,7 @@ const Register = () => {
         <h4>Register as a Reader/Writer</h4>
         <div className="h-3"></div>
         <form action="">
+        <div className={`h-[5rem] ${success == '' ? 'hidden' : 'flex' } absolute px-12 top-5 right-5 rounded-lg text-white justify-center items-center bg-green-700`}>Registration Success</div>
             <div className="flex gap-3 w-full">
                 <div className='w-1/2'>
                     <label htmlFor="fname">First Name</label>
@@ -71,7 +74,7 @@ const Register = () => {
                 <input type="password" id='cpass' className='border-2 rounded-lg p-2 w-full' required />
             </div> */}
             <div className="h-3"></div>
-            {/* <div className='bg-red-700 my-2 px-3 text-white'>Error</div> */}
+            <div className={`bg-red-700 my-2 px-3 ${success !== '' ? 'hidden' : 'block'} text-white`}>{error}</div>
             <button onClick={submitAcct} className="btn-pry w-full">Create Account</button>
             <div className="h-3"></div>
             <button onClick={handleGoogleAuth} className='w-full p-2 rounded-lg border'>Sign up with Google</button>
