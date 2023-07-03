@@ -1,6 +1,6 @@
 import  { useState, useEffect, createContext } from "react";
 import {collection, getDocs, setDoc, doc} from 'firebase/firestore'
-import {db, auth, googleProvider, mailProvider} from '../firebase'
+import {db, auth, googleProvider, createWithMail, signInWihMail} from '../firebase'
 import { MdAod } from "react-icons/md";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
@@ -62,14 +62,20 @@ const ChatterProvider = ({children}) => {
         await signInWithPopup(auth, googleProvider)
     }
 
-    const handleEmailAuth = async (e) => {
+    const signIn = async (e) => {
         e.preventDefault()
         await signInWithEmailAndPassword
     }
 
+    const createWithEmail = async (e) => {
+        e.preventDefault()
+        // await createWithMail(auth, email, password)
+    }
+
+
     return (
         <ChatterContext.Provider 
-        value={{posts,users, handleGoogleAuth, handleEmailAuth}}>
+        value={{posts,users, handleGoogleAuth}}>
             {children}
         </ChatterContext.Provider>
     )

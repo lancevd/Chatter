@@ -1,9 +1,31 @@
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import { ChatterContext } from '../../../context/ChatterContext'
+import {auth} from '../../../firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const Register = () => {
-    // if()
-    const {handleGoogleAuth, handleEmailAuth} = useContext(ChatterContext)
+    const [userEmail, setUserEmail] = useState('')
+    const [userPassword, setUserPassword] = useState('')
+    const {handleGoogleAuth} = useContext(ChatterContext)
+
+    function submitAcct(e:any ) {
+        e.preventDefault()
+        createUserWithEmailAndPassword(auth, userEmail, userPassword)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+            console.log(user + 'Welcome')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage)
+  });
+
+    }
+    // createUserWithEmailAndPassword( auth, userEmail)
   return (
     <div className='reg-form'>
         <h4>Register as a Reader/Writer</h4>
@@ -34,13 +56,13 @@ const Register = () => {
             <div className='w-full'>
                 <label htmlFor="email">Email Address</label>
                 <div className="h-1"></div>
-                <input type="email" id='email' className='border-2 rounded-lg p-2 w-full' required />
+                <input onChange={(e:any) => setUserEmail(e.target.value)} type="email" id='remail' className='border-2 rounded-lg p-2 w-full' required />
             </div>
             <div className="h-3"></div>
             <div className='w-full'>
                 <label htmlFor="pass">Password</label>
                 <div className="h-1"></div>
-                <input type="password" id='pass' className='border-2 rounded-lg p-2 w-full' required />
+                <input onChange={(e:any) => setUserPassword(e.target.value)} type="password" id='rpass' className='border-2 rounded-lg p-2 w-full' required />
             </div>
             <div className="h-3"></div>
             {/* <div className='w-full'>
@@ -50,7 +72,7 @@ const Register = () => {
             </div> */}
             <div className="h-3"></div>
             {/* <div className='bg-red-700 my-2 px-3 text-white'>Error</div> */}
-            <button onClick={handleEmailAuth} className="btn-pry w-full">Create Account</button>
+            <button onClick={submitAcct} className="btn-pry w-full">Create Account</button>
             <div className="h-3"></div>
             <button onClick={handleGoogleAuth} className='w-full p-2 rounded-lg border'>Sign up with Google</button>
             <div className="h-3"></div>

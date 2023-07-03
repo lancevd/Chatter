@@ -13,7 +13,7 @@ const Testimonial = () => {
                 <p>"Chatter has become an integral part of my online experience. As a user of this incredible blogging platform, I have discovered a vibrant com"</p>
                 <br />
                 <p><span className='text-lg font-medium'>Adebobola Muhydeen,</span> Software developer at Apple</p>
-                <Link to='/register'><button className="btn-pry mt-3">Join Chatter</button></Link>
+                <Link to='/feed'><button className="btn-pry mt-3">Join Chatter</button></Link>
             </div>
         </div>
     </div>

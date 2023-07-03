@@ -25,7 +25,7 @@ const Cta = () => {
                     <br />
                     <p className='w-[90%]'>Share people your great ideas, and also read write-ups based on your interests. connect with people of same interests and goals  </p>
                     <br />
-                    <Link to='/register'><button className="btn-pry">Get Started</button></Link>
+                    <Link to='/feed'><button className="btn-pry">Get Started</button></Link>
                 </div>
             </div>
         </div>
