@@ -7,6 +7,7 @@ const Register = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [userEmail, setUserEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const {handleGoogleAuth} = useContext(ChatterContext)
 
@@ -14,8 +15,10 @@ const Register = () => {
         e.preventDefault()
         createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then((userCredential) => {
-            // Signed in 
+            // Signed in
             const user = userCredential.user;
+            // user?.displayName = username;
+            console.log(user)
             // ...
             setSuccess('Registration Successful')
         })
@@ -35,16 +38,16 @@ const Register = () => {
         <form action="">
         <div className={`h-[5rem] ${success == '' ? 'hidden' : 'flex' } absolute px-12 top-5 right-5 rounded-lg text-white justify-center items-center bg-green-700`}>Registration Success</div>
             <div className="flex gap-3 w-full">
-                <div className='w-1/2'>
-                    <label htmlFor="fname">First Name</label>
+                <div className='w-full'>
+                    <label htmlFor="fname">Full Name</label>
                     <div className="h-1"></div>
-                    <input type="text" id='fname' className='border-2 rounded-lg p-2 w-full' required />
+                    <input onChange={(e:any) => setUsername(e.target.value)} type="text" id='fname' className='border-2 rounded-lg p-2 w-full' required />
                 </div>
-                <div className='w-1/2'>
+                {/* <div className='w-1/2'>
                     <label htmlFor="lname">Last Name</label>
                     <div className="h-1"></div>
                     <input type="text" id='lname' className='border-2 rounded-lg p-2 w-full' required />
-                </div>
+                </div> */}
             </div>
             <div className="h-3"></div>
             <div className='w-full'>

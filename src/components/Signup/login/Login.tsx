@@ -1,6 +1,8 @@
-import React from 'react'
+import {useContext} from 'react'
+import { ChatterContext } from '../../../context/ChatterContext'
 
 const Login = () => {
+  const {handleGoogleAuth} = useContext(ChatterContext)
   return (
     <div className='login-form'>
         <br />
@@ -20,6 +22,8 @@ const Login = () => {
             </div>
             <br />
             <button className="btn-pry w-full">Log in</button>
+            <br /> <br />
+            <button onClick={handleGoogleAuth} className='w-full p-2 rounded-lg border'>Continue with Google</button>
         </form>
     </div>
   )
