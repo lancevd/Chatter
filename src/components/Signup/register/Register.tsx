@@ -28,9 +28,12 @@ const Register = () => {
         // // ..
         // setError(errorMessage)
 //   });
-        setInterval(setError('Sign up with email not available at this time. Please try Google sign in.'), 5000)
-
+        function shootError() {
+            setError('Sign up with email not available at this time. Please try Google Sign Up.')
+        }
+        setTimeout(shootError, 5000)
     }
+
     // createUserWithEmailAndPassword( auth, userEmail)
   return (
     <div className='reg-form'>
