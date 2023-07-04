@@ -13,21 +13,22 @@ const Register = () => {
 
     function submitAcct(e:any ) {
         e.preventDefault()
-        createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // user?.displayName = username;
-            console.log(user)
-            // ...
-            setSuccess('Registration Successful')
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        setError(errorMessage)
-  });
+        // createUserWithEmailAndPassword(auth, userEmail, userPassword)
+        // .then((userCredential) => {
+        //     // Signed in
+        //     const user = userCredential.user;
+        //     // user?.displayName = username;
+        //     console.log(user)
+        //     // ...
+        //     setSuccess('Registration Successful')
+        // })
+        // .catch((error) => {
+        //     const errorCode = error.code;
+        // const errorMessage = error.message;
+        // // ..
+        // setError(errorMessage)
+//   });
+        setInterval(setError('Sign up with email not available at this time. Please try Google sign in.'), 5000)
 
     }
     // createUserWithEmailAndPassword( auth, userEmail)

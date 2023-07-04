@@ -9,7 +9,8 @@ const ChatterContext = createContext()
 const ChatterProvider = ({children}) => {
     const [users, setUsers] = useState([])
     const [posts, setPosts] = useState([])
-    
+    const [userInfo, setUserInfo] = useState()
+
     useEffect(()=> {
         const getUsers = async () => {
             const querySnapshot = await getDocs(collection(db, 'Users'))
@@ -57,19 +58,27 @@ const ChatterProvider = ({children}) => {
         getPosts()
     },[])
 
+    async function addUserToDatabase  (user) {
+        await setDoc(doc(db, 'Users', user.email), {
+            email: user.email,
+            name: user.displayName,
+            imageUrl: user.photoURL,
+            followerCount: 0,
+            followingCount: 0,
+            profileVisits: 0,
+            posts: 0,
+            occupation: 'Chatter Writer'
+
+        })
+    }
+
     const handleGoogleAuth = async (e) => {
         e.preventDefault()
-        await signInWithPopup(auth, googleProvider)
-    }
-
-    const signIn = async (e) => {
-        e.preventDefault()
-        await signInWithEmailAndPassword
-    }
-
-    const createWithEmail = async (e) => {
-        e.preventDefault()
-        // await createWithMail(auth, email, password)
+        const userData = await signInWithPopup(auth, googleProvider)
+        setUserInfo(userData?.user)
+        addUserToDatabase(userInfo)
+        console.log(userInfo)
+        window.location.href = '/feed'
     }
 
 
