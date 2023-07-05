@@ -6,7 +6,7 @@ const Right = () => {
     const [formDisplay, setFormDisplay] = useState(true)
 
   return (
-    <div className='w-[55%] py-8'>
+    <div className='w-full lg:w-[55%] py-8'>
         <div className="w-[80%] mx-auto">
             <div className="flex w-full">
                 <div className={`w-[50%] border-b-4 ${formDisplay ? 'border-[#543EE0]' : 'border-transparent'} cursor-pointer`} onClick={() => setFormDisplay(true)}>
