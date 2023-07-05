@@ -2,6 +2,7 @@ import {useContext, useState} from 'react'
 import { ChatterContext } from '../../../context/ChatterContext'
 import {auth} from '../../../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { clearInterval } from 'timers'
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -28,12 +29,17 @@ const Register = () => {
         // // ..
         // setError(errorMessage)
 //   });
-        function shootError() {
-            setError('Sign up with email not available at this time. Please try Google Sign Up.')
+        setError('Sign up with email not available at this time. Please try Google Sign Up.')
+        
+        function clearError() {
+            setError('')
         }
-        setTimeout(shootError, 5000)
-    }
 
+        setTimeout(clearError, 5000)
+
+        
+    }
+    
     // createUserWithEmailAndPassword( auth, userEmail)
   return (
     <div className='reg-form'>

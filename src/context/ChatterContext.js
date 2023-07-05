@@ -9,7 +9,7 @@ const ChatterContext = createContext()
 const ChatterProvider = ({children}) => {
     const [users, setUsers] = useState([])
     const [posts, setPosts] = useState([])
-    const [userInfo, setUserInfo] = useState()
+    const [currentUser, setCurrentUser] = useState()
 
     useEffect(()=> {
         const getUsers = async () => {
@@ -75,16 +75,18 @@ const ChatterProvider = ({children}) => {
     const handleGoogleAuth = async (e) => {
         e.preventDefault()
         const userData = await signInWithPopup(auth, googleProvider)
-        setUserInfo(userData?.user)
-        addUserToDatabase(userInfo)
-        console.log(userInfo)
-        window.location.href = '/feed'
+        const userRep = userData?.user
+        // console.log(userRep)
+        setTimeout(setCurrentUser(userRep),5000)
+        setTimeout(console.log(currentUser ),6000)
+        await addUserToDatabase(userRep)
+        // window.location.href = '/feed'
     }
 
 
     return (
         <ChatterContext.Provider 
-        value={{posts,users, handleGoogleAuth}}>
+        value={{posts,users, handleGoogleAuth, currentUser}}>
             {children}
         </ChatterContext.Provider>
     )
