@@ -16,9 +16,9 @@ const Header = () => {
            <div className='flex items-center gap-4 text-2xl'>
               <MdOutlineNotificationsNone/>
               {currentUser ? 
-              (<Link to={'/register'}><div className="btn-pry w-fit h-fit text-xs md:text-base p-1 md:p-2 cursor-pointer">Sign up</div></Link>)
-              :
               (<div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-blue-800"></div>)
+              :
+              (<Link to={'/register'}><div className="btn-pry w-fit h-fit text-xs md:text-base p-1 md:p-2 cursor-pointer">Sign up</div></Link>)
               }
            </div>
         </div>

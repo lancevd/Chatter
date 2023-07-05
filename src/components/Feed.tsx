@@ -5,8 +5,7 @@ import { ChatterContext } from '../context/ChatterContext'
 import { Link } from 'react-router-dom'
 
 const Feed = () => {
-  const { users, posts }: any = useContext(ChatterContext);
-
+  const {posts, currentUser }: any = useContext(ChatterContext);
   // console.log(posts, '**')
   return (
     <div className='w-[90%] mx-auto py-6'>
@@ -16,7 +15,12 @@ const Feed = () => {
                     <p>Explore different content you’d love </p>
                 </div>
 
-                <button className="btn-pry w-fit flex gap-2 items-center py-4"><HiOutlinePencil/> <span>Post a content</span></button>
+                { currentUser ?
+                  (<button className="btn-pry w-fit flex gap-2 items-center py-1 md:py-4"><HiOutlinePencil/> <span>Post a content</span></button>)
+                  :
+                  ('')
+                }
+                
             </div>
             <br /> <br /> 
             <div className="border flex justify-between items-center px-4 py-6 rounded-lg">
