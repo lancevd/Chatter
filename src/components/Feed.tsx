@@ -16,7 +16,7 @@ const Feed = () => {
                 </div>
 
                 { currentUser ?
-                  (<button className="btn-pry w-fit flex gap-2 items-center py-1 md:py-4"><HiOutlinePencil/> <span>Post a content</span></button>)
+                  (<Link to='/create-post'><button className="btn-pry w-fit flex gap-2 items-center py-1 md:py-4"><HiOutlinePencil/> <span>Post a content</span></button></Link>)
                   :
                   ('')
                 }
