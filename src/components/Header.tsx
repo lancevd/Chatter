@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { ChatterContext } from '../context/ChatterContext'
 
 const Header = () => {
-   const {logOut} = useContext(ChatterContext)
+   const {logOut, currentUser} = useContext(ChatterContext)
    const [showBtn, setShowBtn] = useState('hidden')
 
    function toggleBtn () {
@@ -24,15 +24,15 @@ const Header = () => {
            </div>
            <div className='flex items-center gap-4 text-2xl'>
               <MdOutlineNotificationsNone/>
-              {window.localStorage.getItem('ACTIVE_USER') ? 
+              {currentUser ? 
               (
                <div className='flex flex-col'>
-                  <div onClick={toggleBtn} className="w-8 h-8 md:w-12 md:h-12 cursor-pointer rounded-full bg-blue-800"></div>
+                  <div onClick={toggleBtn} className="w-8 h-8 md:w-12 md:h-12 cursor-pointer rounded-full bg-blue-800 overflow-hidden"><img src={currentUser.photoURL} /> </div>
                   <button onClick={logOut} className={`bg-blue-800 p-1 text-white border rounded-md text-sm ${showBtn}`}>Logout</button>
                </div>
               )
               :
-              (<Link to={'/register'}><div className="btn-pry w-fit h-fit text-xs md:text-base p-1 md:p-2 cursor-pointer">Sign up</div></Link>)
+              (<Link to={'/register'}><div className="btn-pry w-fit h-fit text-xs md:text-base p-1 md:p-2 cursor-pointer">Start Writing</div></Link>)
               }
            </div>
         </div>

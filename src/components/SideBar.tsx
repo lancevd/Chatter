@@ -3,10 +3,13 @@ import {BsBricks, BsBookmarks} from 'react-icons/bs'
 import {FaRegUser, FaBars, FaWindowClose} from 'react-icons/fa'
 import {LuUsers} from 'react-icons/lu'
 import {MdOutlineDrafts,MdOutlineAnalytics,MdOutlineNotificationsNone} from 'react-icons/md' 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ChatterContext } from '../context/ChatterContext'
 
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const {logOut, currentUser} = useContext(ChatterContext)
+
     function toggleSidebar() { setIsOpen(!isOpen) }
 
     const sideBarMenuItems : {
@@ -74,6 +77,7 @@ const SideBar = () => {
                     <Link to='#' className='flex gap-2 items-center'><span> {<FaRegUser/>} </span> <p>Account</p></Link>
                     <Link to='#' className='flex gap-2 items-center'><span> <MdOutlineNotificationsNone/> </span> <p>Notifications</p></Link>
                 </menu>
+                <button onClick={logOut} className={`w-full bg-red-600 text-white mt-2 ${currentUser ? 'block' : 'hidden'}`}>Log Out</button>
             </div>
        </div>
     </aside>

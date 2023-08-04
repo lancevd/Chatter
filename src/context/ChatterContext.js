@@ -117,7 +117,8 @@ const ChatterProvider = ({children}) => {
     
     const logOut = () => {
         signOut(auth).then(() => {
-            window.location.href = '/feed'
+            // window.location.href = '/feed'
+            alert('Logout successful')
           }).catch((error) => {
             console.log(error);
             

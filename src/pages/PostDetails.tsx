@@ -18,7 +18,7 @@ const PostDetails: React.FC<articleProps> = ({ post, author }) => {
         <div className="p-6">
             <div className="flex gap-4 items-center">
                 <div className="w-8 h-8 md:w-16 md:h-16 bg-cyan-800 rounded-[50%] overflow-hidden">
-                    <img src={author?.data?.userImage} />
+                    <img src={author?.data?.imageURL} />
                 </div>
                 <div className="flex flex-col">
                     <h5>{author?.data?.name}</h5>

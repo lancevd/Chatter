@@ -23,12 +23,15 @@ const PostPreview: React.FC<postProps> = ({post}) => {
 
     getAuthorData();
   }, []);
+    if (!authorData) {
+        return <div>Loading...</div>
+    }
     
   return (
     <div className="border p-4 md:p-8">
         <div className='flex gap-4 items-center'>
             <div className="w-8 h-8 md:w-16 md:h-16 bg-cyan-800 rounded-[50%] overflow-hidden">
-                <img src={authorData ? authorData.userImage : ''} />
+                <img src={authorData.imageURL} />
             </div>
             <div className="flex flex-col">
                 <h5>{authorData ? authorData.name : ''}</h5>
