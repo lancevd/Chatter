@@ -26,6 +26,7 @@ const CreatePost = () => {
     })
 
     alert('Post Published!')
+    window.location.href = '/feed'
   }
   return (
     <main className='p-2 md:p-4'>
