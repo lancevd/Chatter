@@ -51,7 +51,7 @@ const ChatterProvider = ({children}) => {
                             postLength: doc.data().postLength,
                             bannerImage: doc.data().image ,
                             title: doc.data().title,
-                            comments: doc.data().commentCount,
+                            comments: doc.data().commentCount, 
                             likes: doc.data().likeCount,
                             views: doc.data().impression,
                             publishedOn  : doc.data().publishedOn.toDate(),
